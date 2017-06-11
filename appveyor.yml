@@ -1,0 +1,14 @@
+environment:
+  NugetApiKey:
+    secure: BUoskC6C/5Rslzq7a+H/rd0HPmicOx/kTaiuRJg7qvArtz5Wi8fsdd9KsXXZWKaq
+
+os: WMF 5
+
+skip_commits:
+  message: /updated readme.*|update readme.*s/
+
+build: false
+
+test_script:
+  - ps: . .\.init.ps1
+  - ps: Invoke-Build
