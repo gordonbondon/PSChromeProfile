@@ -97,7 +97,7 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = 'https://github.com/gordonbondon/PSChromeProfile/blob/master/CHANGELOG.md'
+        ReleaseNotes = 'Initial release'
 
     } # End of PSData hashtable
 
