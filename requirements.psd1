@@ -1,7 +1,7 @@
 @{
 
-    BuildHelpers = 'latest'
-    Pester       = 'latest'
-    PlatyPS      = 'latest'
-
+    BuildHelpers         = 'latest'
+    Pester               = 'latest'
+    PlatyPS              = 'latest'
+    TabExpansionPlusPlus = 'latest'
 }
