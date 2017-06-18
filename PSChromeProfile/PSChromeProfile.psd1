@@ -40,7 +40,7 @@ Description = 'Functions to operate Chrome Profiles'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @('TabExpansionPlusPlus')
+RequiredModules = @(@{ModuleName='TabExpansionPlusPlus'; ModuleVersion='1.2'})
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
@@ -110,12 +110,3 @@ PrivateData = @{
 # DefaultCommandPrefix = ''
 
 }
-
-
-
-
-
-
-
-
-

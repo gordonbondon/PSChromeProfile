@@ -1,6 +1,6 @@
 param (
     [string]
-    $BuildOutput = (Join-Path $PSScriptRoot 'BuildOut'),
+    $BuildOutput = [system.io.path]::Combine($PSScriptRoot, 'BuildOut', 'PSChromeProfile'),
 
     [string]
     $PesterOutput = (Join-Path $PSScriptRoot 'PesterOut'),
@@ -40,6 +40,11 @@ task ResolveDependencies InstallPSDepend, {
 # Synopsis: Initialise env variables
 task Init Clean, ResolveDependencies, {
     Set-BuildEnvironment
+    $LineSeparation
+    "`t`t`t Build environments"
+    $LineSeparation
+    "Branch:" + $env:BHBranchName
+    "Commit:" + $env:BHCommitMessage
 }
 
 # Synopsis: Get next version
