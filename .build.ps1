@@ -34,6 +34,7 @@ task InstallPSDepend -if {!(Get-Module -ListAvailable PSDepend)} Clean, {
 # Synopsis: Install Dependencies
 task ResolveDependencies InstallPSDepend, {
     Invoke-PSDepend -Path (Join-Path $PSScriptRoot './requirements.psd1') -Force
+    Install-Module TabExpansionPlusPlus -AllowClobber
 }
 
 # Synopsis: Initialise env variables
