@@ -57,10 +57,12 @@ task Version Init, {
         $script:nextVersion = $currVersion
     }
 
+    $LineSeparation
     "`t`t`t Module Build Version: $($script:nextVersion)"
+    $LineSeparation
 }
 
-# Synopsis: Create versioned folder
+# Synopsis: Create output folder
 task CreateOutFolder Version, {
     if (-not (Test-Path -Path $BuildOutput)) {
         New-Item $BuildOutput -ItemType Directory
@@ -84,6 +86,7 @@ task BuildPSModule -Partial -Inputs {Get-ChildItem "${env:BHModulePath}" -Recurs
     }
 }
 
+# Synopsis: Update help files
 task UpdateHelp {
     $script:docsPath = (Join-Path $PSScriptRoot 'Docs')
     Import-Module -Force $env:BHPSModuleManifest
@@ -98,6 +101,7 @@ task BuildHelp -Inputs {Get-Item $script:docsPath\*.md} -Outputs "$BuildOutput\e
 
 task Build BuildPSModule, BuildHelp
 
+# Synopsis: Run tests
 task PesterTest {
     $timeStamp = Get-date -uformat "%Y%m%d-%H%M%S"
     $script:pesterOutFile = (Join-Path $PesterOutput "Unit_$timeStamp.xml")
@@ -127,6 +131,7 @@ task UploadTestInAppveyor -if ($env:BHBuildSystem -eq 'AppVeyor') PesterTest, {
 
 task Test PesterTest, UploadTestInAppveyor
 
+# Synopsis: Publish to PSGallery
 task Deploy -if ($env:BHBranchName -like "master" -and $env:BHCommitMessage -like "*release*"){
     $params = @{
             Path = $BuildOutput
