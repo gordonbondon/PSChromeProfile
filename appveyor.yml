@@ -1,3 +1,4 @@
+version: 0.1.0.{build}
 environment:
   NugetApiKey:
     secure: BUoskC6C/5Rslzq7a+H/rd0HPmicOx/kTaiuRJg7qvArtz5Wi8fsdd9KsXXZWKaq
